@@ -50,8 +50,12 @@ const seedDatabase = async () => {
       },
     ];
 
-    // Insert users
-    const createdUsers = await User.insertMany(demoUsers);
+    // Insert users using save() so pre-save password hashing runs
+    const createdUsers = [];
+    for (const userData of demoUsers) {
+      const user = new User(userData);
+      createdUsers.push(await user.save());
+    }
     console.log(`✓ Created ${createdUsers.length} demo users`);
 
     // Update createdBy for all users (except first one)
