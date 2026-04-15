@@ -1,6 +1,8 @@
 import React, { useState, useEffect, useContext } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../context/AuthContext';
+import Modal from '../components/Modal';
+import CreateUserForm from '../components/CreateUserForm';
 import userService from '../services/userService';
 import '../styles/UserList.css';
 
@@ -9,6 +11,7 @@ const UserList = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
   const [pagination, setPagination] = useState({});
+  const [showCreateModal, setShowCreateModal] = useState(false);
   const [filters, setFilters] = useState({
     page: 1,
     limit: 10,
@@ -63,6 +66,11 @@ const UserList = () => {
     navigate(`/users/${id}/edit`);
   };
 
+  const handleCreateSuccess = () => {
+    setShowCreateModal(false);
+    fetchUsers();
+  };
+
   if (loading && users.length === 0) {
     return <div className="loading">Loading users...</div>;
   }
@@ -72,9 +80,9 @@ const UserList = () => {
       <div className="user-list-header">
         <h2>User Management</h2>
         {user?.role === 'admin' && (
-          <Link to="/users/create" className="create-btn">
+          <button onClick={() => setShowCreateModal(true)} className="create-btn">
             + Create New User
-          </Link>
+          </button>
         )}
       </div>
 
@@ -185,6 +193,17 @@ const UserList = () => {
           ))}
         </div>
       )}
+
+      <Modal
+        isOpen={showCreateModal}
+        onClose={() => setShowCreateModal(false)}
+        title="Create New User"
+      >
+        <CreateUserForm
+          onSuccess={handleCreateSuccess}
+          onCancel={() => setShowCreateModal(false)}
+        />
+      </Modal>
     </div>
   );
 };

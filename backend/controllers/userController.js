@@ -152,7 +152,7 @@ exports.updateUser = async (req, res) => {
     if (email) user.email = email;
     if (password) user.password = password; // Will be hashed by pre-save hook
     if (role && currentUser.role === 'admin') user.role = role;
-    if (status && currentUser.role === 'admin') user.status = status;
+    if (status && (currentUser.role === 'admin' || currentUser.role === 'manager')) user.status = status;
 
     user.updatedBy = currentUser.id;
 

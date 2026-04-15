@@ -65,18 +65,9 @@ function App() {
 
           {/* Admin Only Routes */}
           <Route
-            path="/users/create"
-            element={
-              <ProtectedRoute requiredRole="admin">
-                <UserForm />
-              </ProtectedRoute>
-            }
-          />
-
-          <Route
             path="/users/:id/edit"
             element={
-              <ProtectedRoute requiredRole="admin">
+              <ProtectedRoute requiredRole="manager">
                 <UserForm />
               </ProtectedRoute>
             }
