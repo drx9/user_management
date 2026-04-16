@@ -208,7 +208,7 @@ Authorization: Bearer <token>
     "createdBy": {
       "_id": "507f1f77bcf86cd799439001",
       "name": "Admin",
-      "email": "admin@demo.com"
+      "email": "admin@.com"
     },
     "updatedBy": null
   }
