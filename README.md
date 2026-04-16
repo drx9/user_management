@@ -38,7 +38,7 @@ A full-stack User Management System built with the MERN (MongoDB, Express.js, Re
 ## 📋 Tech Stack
 
 ### Frontend
-- **React 18**: UI library with hooks
+- **React 18**: UI library with hooks...
 - **React Router v6**: Client-side routing
 - **Axios**: HTTP client for API communication
 - **Context API**: State management for authentication
