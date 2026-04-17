@@ -98,3 +98,15 @@ h3 { font-size: 1.1rem; }
 p { color: var(--muted); }
 
 .card { background: var(--surface); border-radius: var(--radius); box-shadow: var(--glass-shadow); }
+
+/* ─── Global Responsive ─── */
+@media (max-width: 768px) {
+  .container { padding: 16px; }
+  h2 { font-size: 1.2rem; }
+  h3 { font-size: 1rem; }
+}
+
+@media (max-width: 480px) {
+  .container { padding: 12px; }
+  h2 { font-size: 1.1rem; }
+}

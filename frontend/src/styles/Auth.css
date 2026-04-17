@@ -122,3 +122,35 @@
   margin-bottom: 0.5rem;
   font-size: 0.9rem;
 }
+
+/* ─── Auth Responsive ─── */
+@media (max-width: 768px) {
+  .auth-container {
+    padding: 1.25rem;
+    align-items: flex-start;
+    padding-top: 2rem;
+  }
+
+  .auth-box {
+    padding: 1.75rem 1.25rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .auth-container {
+    padding: 1rem;
+    padding-top: 1.5rem;
+    min-height: calc(100vh - 56px);
+  }
+
+  .auth-box {
+    padding: 1.25rem 1rem;
+    border-radius: var(--radius);
+  }
+
+  .auth-box h2 { font-size: 1.2rem; }
+
+  .submit-btn { font-size: 0.95rem; }
+
+  .demo-credentials { font-size: 0.8rem; }
+}
